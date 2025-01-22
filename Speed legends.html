@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPDLEGSPORTF1</title>
+    <link rel="icon" href="D:\test\speed legends logo.png" type="image/png">
+    <style>
+        /* Stili Globali */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #444;
+            padding: 10px 20px;
+            color: #ffffff;
+            position: relative;
+            height: 30px;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 20px;
+            height: 100%;
+            padding: 0px 15px;
+            cursor: pointer;
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            left:0; 
+        }
+        .return-home{
+            color: #0731aa;
+
+        }
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Sezioni */
+        section {
+            padding: 20px;
+        }
+        #leaderboard {
+            display: none; /* Nascondere la classifica inizialmente */
+            margin-top: 20px;
+        }
+
+        #leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #leaderboard th, #leaderboard td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: left;
+        }
+
+        #leaderboard th {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .cta-button {
+            background-color: #ff5722;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 5px;
+            -webkit-user-drag: none;
+        }
+
+        .language-selector select {
+            padding: 5px;
+            border-radius: 5px;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+        }
+
+        form input[type="submit"] {
+            background-color: #ff5722;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav {
+                justify-content: flex-end;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                background-color: #444;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            .cta-button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            .gallery img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        @supports (-webkit-touch-callout: none) {
+            .menu-toggle {
+                -webkit-user-select: none;
+                user-select: none;
+            }
+
+            .gallery img {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Benvenuti su SPEED_LEGENDS_SPORT_F1</h1>
+        <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/ea56e4ef-639f-4f2d-9cb7-c696bc5d576b-profile_image-150x150.png" alt="Logo" style="width: 150px; height: 150px; margin-top: 10px;">
+        <p>LA MIGLIOR COMMUNITY DI F1</p>
+        <a href="https://m.twitch.tv/speed_legends_sport_f1?sr=a&desktop-redirect=true" class="cta-button">Guarda Ora</a>
+        
+        <!-- Selettore Lingua -->
+        <div class="language-selector">
+            <label for="language-selector">Lingua:</label>
+            <select id="language" name="language" onchange="changeLanguage(this.value)">
+                <option value="it">Italiano</option>
+                <option value="en">Inglese</option>
+                <option value="zh">Cinese</option>
+                <option value="hi">Hindi</option>
+                <option value="es">Spagnolo</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Navigazione -->
+    <nav>
+        
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="menu">
+            <a href="#about">Chi Siamo</a>
+            <a href="#schedule">Calendario</a>
+            <a href="#gallery">Galleria</a>
+            <a href="#community">Community</a>
+            <a href="#contact">Contatti</a>
+            <a href="#leaderboard" onclick="showLeaderboard()">Classifica</a>
+        </ul>
+    </nav>
+
+    <!-- Sezioni -->
+    <section id="about">
+        <h2>Chi Siamo</h2>
+        <p>Appassionati di Formula 1, condividiamo il nostro entusiasmo ogni settimana!</p>
+    </section>
+
+    <section id="schedule">
+        <h2>Calendario Live</h2>
+        <ul>
+            <li>Lunedì: 21:30 - 23:30</li>
+        </ul>
+    </section>
+
+    <section id="gallery">
+        <h2>Galleria</h2>
+        <div class="gallery">
+            <img src="foto1.jpg" alt="Momento 1">
+            <img src="foto2.jpg" alt="Momento 2">
+        </div>
+    </section>
+
+    <section id="community">
+        <h2>Community</h2>
+        <p>Seguici su Twitch e altri social!</p>
+        <a href="https://m.twitch.tv/speed_legends_sport_f1?sr=a&desktop-redirect=true">TWITCH</a> |
+        <a href="https://www.tiktok.com/@scaredgod.06?_t=8Wwa8GI6XMz&_r=1&fbclid=PAY2xjawH9y19leHRuA2FlbQIxMQABpm8W2yiPujPSaeIXHr6uBVhOYJxFu2tc6o5-OUmdYvle1mCeOwJSuRs4FQ_aem_juOQZ3Z_rub9X_2QMNeHZg">TIKTOK</a> |
+        <a href="https://www.instagram.com/scaredgod?igsh=MWQ5Y2VhaHNja2l1MQ==">INSTAGRAM</a>
+    </section>
+
+    <section id="leaderboard">
+        <button class="return-home" onclick="home()">TORNA INDIETRO</button>
+        <h2>Classifica Giocatori</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Posizione</th>
+                    <th>Giocatore</th>
+                    <th>Punti</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard-rows">
+                <!-- Righe dinamiche aggiunte via JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <section id="contact">
+        <h2>Contatti</h2>
+        <form>
+            <input type="text" name="name" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Messaggio" rows="4" required></textarea>
+            <input type="submit" value="Invia">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SPEED_LEGENDS_SPORT_F1</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+
+        function changeLanguage(lang) {
+            alert("Lingua selezionata: " + lang);
+        }
+        function home(){
+            document.querySelectorAll('header, nav, section, footer').forEach(el => {
+            el.style.display = ''; // Ripristina il valore predefinito
+            });
+            const leaderboard = document.getElementById('leaderboard');
+            leaderboard.style.display = 'none';
+        }
+
+        function showLeaderboard() {
+            document.querySelectorAll('header, nav, section, footer').forEach(el => {
+                el.style.display = 'none';
+            });
+            const leaderboard = document.getElementById('leaderboard');
+            leaderboard.style.display ='block';
+            loadLeaderboard(); 
+        }
+
+        async function loadLeaderboard() {
+            try {
+                const response = await fetch('players.txt'); // Leggi il file JSON
+                const players = await response.json(); // Converti i dati in un array
+                updateLeaderboard(players); // Aggiorna la classifica
+            } catch (error) {
+                console.error("Errore nel caricamento della classifica:", error);
+            }
+        }
+
+        // Funzione per aggiornare la classifica
+        function updateLeaderboard(players) {
+            if (!Array.isArray(players)) {
+            console.error("Dati non validi per la classifica");
+            return;
+        }
+            const tbody = document.getElementById('leaderboard-rows');
+            tbody.innerHTML = ''; // Pulire le righe precedenti
+
+            // Ordina i giocatori in base ai punti (dal più alto al più basso)
+            players.sort((a, b) => b.points - a.points);
+
+            // Aggiungi i giocatori alla tabella
+            players.forEach((player, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${player.name}</td>
+                    <td>${player.points}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Carica la classifica al caricamento della pagina
+        loadLeaderboard();
+       
+    </script>
+
+</body>
+</html>
