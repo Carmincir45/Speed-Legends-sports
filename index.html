@@ -294,70 +294,76 @@
         <p>&copy; 2025 SPEED_LEGENDS_SPORT_F1</p>
     </footer>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            menu.classList.toggle('active');
-        }
+<script>
+    function changeLanguage(lang) {
+        alert("Lingua selezionata: " + lang);
+    }
 
-        function changeLanguage(lang) {
-            alert("Lingua selezionata: " + lang);
-        }
-        function home(){
-            document.querySelectorAll('header, nav, section, footer').forEach(el => {
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+    }
+
+    function home() {
+        document.querySelectorAll('header, nav, section, footer').forEach(el => {
             el.style.display = ''; // Ripristina il valore predefinito
-            });
-            const leaderboard = document.getElementById('leaderboard');
-            leaderboard.style.display = 'none';
-        }
+        });
+        const leaderboard = document.getElementById('leaderboard');
+        leaderboard.style.display = 'none';
+    }
 
-        function showLeaderboard() {
-            document.querySelectorAll('header, nav, section, footer').forEach(el => {
-                el.style.display = 'none';
-            });
-            const leaderboard = document.getElementById('leaderboard');
-            leaderboard.style.display ='block';
-            loadLeaderboard(); 
-        }
+    function showLeaderboard() {
+        document.querySelectorAll('header, nav, section, footer').forEach(el => {
+            el.style.display = 'none';
+        });
+        const leaderboard = document.getElementById('leaderboard');
+        leaderboard.style.display = 'block';
+        loadLeaderboard(); 
+    }
 
-        async function loadLeaderboard() {
-            try {
-                const response = await fetch('players.txt'); // Leggi il file JSON
-                const players = await response.json(); // Converti i dati in un array
-                updateLeaderboard(players); // Aggiorna la classifica
-            } catch (error) {
-                console.error("Errore nel caricamento della classifica:", error);
+    async function loadLeaderboard() {
+        try {
+            const response = await fetch('https://raw.githubusercontent.com/Carmincir45/Speed-Legends-sports/main/players.json');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
+            const players = await response.json(); // Converti i dati in un array
+            updateLeaderboard(players); // Aggiorna la classifica
+        } catch (error) {
+            console.error("Errore nel caricamento della classifica:", error);
         }
+    }
 
-        // Funzione per aggiornare la classifica
-        function updateLeaderboard(players) {
-            if (!Array.isArray(players)) {
+    // Funzione per aggiornare la classifica
+    function updateLeaderboard(players) {
+        if (!Array.isArray(players)) {
             console.error("Dati non validi per la classifica");
             return;
         }
-            const tbody = document.getElementById('leaderboard-rows');
-            tbody.innerHTML = ''; // Pulire le righe precedenti
+        const tbody = document.getElementById('leaderboard-rows');
+        tbody.innerHTML = ''; // Pulire le righe precedenti
 
-            // Ordina i giocatori in base ai punti (dal più alto al più basso)
-            players.sort((a, b) => b.points - a.points);
+        // Ordina i giocatori in base ai punti (dal più alto al più basso)
+        players.sort((a, b) => b.points - a.points);
 
-            // Aggiungi i giocatori alla tabella
-            players.forEach((player, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${player.name}</td>
-                    <td>${player.points}</td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
+        // Aggiungi i giocatori alla tabella
+        players.forEach((player, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${player.name}</td>
+                <td>${player.points}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
 
-        // Carica la classifica al caricamento della pagina
-        loadLeaderboard();
-       
-    </script>
+    // Carica la classifica al caricamento della pagina
+    loadLeaderboard();
+
+    // Aggiorna la classifica ogni 60 secondi
+    setInterval(loadLeaderboard, 60000);
+</script>
 
 </body>
 </html>
