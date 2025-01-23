@@ -141,19 +141,26 @@ form input[type="submit"] {
     }
 
     .menu {
-        display: none;
-        flex-direction: column;
-        background-color: #444;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        z-index: 1000;
-    }
+    display: none;
+    flex-direction: column;
+    background-color: #444;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
 
-    .menu.active {
-        display: flex;
-    }
+.menu.active {
+    display: flex;
+    max-height: 500px;
+    opacity: 1;
+}
+
 
     .menu-toggle {
         display: flex;
