@@ -5,196 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPDLEGSPORTF1</title>
     <link rel="icon" href="https://raw.githubusercontent.com/Carmincir45/Speed-Legends-sports/refs/heads/main/speed%20legends%20logo.png" type="image/png">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/Carmincir45/Speed-Legends-sports/refs/heads/main/mariostyle.css">
     <style>
-        /* Stili Globali */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1e1e1e;
-            color: #ffffff;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        header {
-            background-color: #333;
-            padding: 20px;
-            text-align: center;
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #444;
-            padding: 10px 20px;
-            color: #ffffff;
-            position: relative;
-            height: 30px;
-        }
-
-        nav a {
-            color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 20px;
-            height: 100%;
-            padding: 0px 15px;
-            cursor: pointer;
-            position: absolute;
-            align-items: center;
-            justify-content: center;
-            left:0; 
-        }
-        .return-home{
-            color: #0731aa;
-
-        }
-        .menu {
-            display: flex;
-            gap: 15px;
-        }
-
-        /* Sezioni */
-        section {
-            padding: 20px;
-        }
-        #leaderboard {
-            display: none; /* Nascondere la classifica inizialmente */
-            margin-top: 20px;
-        }
-
-        #leaderboard table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        #leaderboard th, #leaderboard td {
-            border: 1px solid #444;
-            padding: 10px;
-            text-align: left;
-        }
-
-        #leaderboard th {
-            background-color: #555;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .cta-button {
-            background-color: #ff5722;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .gallery img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 5px;
-            -webkit-user-drag: none;
-        }
-
-        .language-selector select {
-            padding: 5px;
-            border-radius: 5px;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #555;
-            border-radius: 5px;
-            background-color: #222;
-            color: #fff;
-        }
-
-        form input[type="submit"] {
-            background-color: #ff5722;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            nav {
-                justify-content: flex-end;
-            }
-
-            .menu {
-                display: none;
-                flex-direction: column;
-                background-color: #444;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                width: 100%;
-                z-index: 1000;
-            }
-
-            .menu.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 24px;
-            }
-
-            .cta-button {
-                padding: 8px 15px;
-                font-size: 14px;
-            }
-
-            .gallery img {
-                width: 100%;
-                height: auto;
-            }
-        }
-        @supports (-webkit-touch-callout: none) {
-            .menu-toggle {
-                -webkit-user-select: none;
-                user-select: none;
-            }
-
-            .gallery img {
-                -webkit-transform: translateZ(0);
-                transform: translateZ(0);
-            }
-        }
+          /* Stili Globali */
     </style>
 </head>
 <body>
@@ -244,9 +57,6 @@
         <ul>
             <li>Lunedì: 21:30 - 23:30</li>
         </ul>
-        <h2>Next race:time 00:00:00:</h2>
-        
-        
     </section>
 
     <section id="gallery">
@@ -370,3 +180,4 @@
 
 </body>
 </html>
+
