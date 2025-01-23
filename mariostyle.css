@@ -108,6 +108,7 @@ footer {
     max-width: 300px;
     height: auto;
     border-radius: 5px;
+    left: 10px;
     -webkit-user-drag: none;
 }
 
