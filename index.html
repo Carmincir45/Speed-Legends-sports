@@ -21,12 +21,11 @@
         <div class="language-selector">
             <label for="language-selector">Lingua:</label>
             <select id="language" name="language" onchange="changeLanguage(this.value)">
-               <select id="country-selector" onchange="loadEvent(this.value)">
-                <option value="it">🇮🇹 Imola</option>
-                <option value="en">🇬🇧 Regno Unito</option>
-                <option value="es">🇪🇸 Spagna</option>
-                <option value="fr">🇫🇷 Francia</option>
-            </select>
+                <option value="it">Italiano</option>
+                <option value="en">Inglese</option>
+                <option value="zh">Cinese</option>
+                <option value="hi">Hindi</option>
+                <option value="es">Spagnolo</option>
             </select>
         </div>
     </header>
@@ -59,10 +58,10 @@
         <p>Seleziona una nazionalità per vedere il prossimo evento:</p>
         <div>
             <select id="country-selector" onchange="loadEvent(this.value)">
-                <option value="it">Italia</option>
-                <option value="en">Regno Unito</option>
-                <option value="es">Spagna</option>
-                <option value="fr">Francia</option>
+                <option value="it">🇮🇹 Imola</option>
+                <option value="en">🇬🇧 Regno Unito</option>
+                <option value="es">🇪🇸 Spagna</option>
+                <option value="fr">🇫🇷 Francia</option>
             </select>
         </div>
         <p id="event-name" style="margin-top: 20px;">Caricamento evento...</p>
