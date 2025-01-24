@@ -106,7 +106,9 @@ footer {
 #gallery h2 {
     margin-top: 10px;
 }
-
+#gallery{
+    padding:10px;
+}
 .gallery img {
     width: 100%;
     max-width: 500px;
