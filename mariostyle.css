@@ -103,6 +103,9 @@ footer {
     padding-top: 10px;
     justify-content: flex-start;
 }
+#gallery h2 {
+    margin-top: 10px;
+}
 
 .gallery img {
     width: 100%;
