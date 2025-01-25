@@ -26,13 +26,23 @@ nav {
     position: relative;
     height: 30px;
 }
+nav a:hover {
+     
+    transition: color 0.3s ease; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333;
+}
 
 nav a {
     color: #fff;
     margin: 0 10px;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
+    position: relative;
+    display: inline-block;
 }
+
 
 .menu-toggle {
     display: none;
