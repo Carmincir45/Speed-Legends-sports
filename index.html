@@ -198,29 +198,33 @@
     // Funzione per aggiornare il countdown
     function updateCountdown() {
         if (!eventDate) return; // Se non è stata selezionata una data, non fare nulla
-        const now = new Date(); // Data attuale
-        const timeDifference = new Date(eventDate) - now; // Differenza in millisecondi
+    const now = new Date(); // Data attuale
+    const eventDateTime = new Date(eventDate); // Data dell'evento
 
-        if (timeDifference > 0) {
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    if (eventDateTime > now) {
+        const timeDifference = eventDateTime - now; // Differenza in millisecondi
 
-            document.getElementById("days").textContent = days;
-            document.getElementById("hours").textContent = hours;
-            document.getElementById("minutes").textContent = minutes;
-            document.getElementById("seconds").textContent = seconds;
-        } else {
-            document.getElementById("countdown").innerHTML = "<p>L'evento è in corso o si è già concluso!</p>";
-        }
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+    } else {
+        document.getElementById("countdown").innerHTML = "<p>L'evento è in corso o si è già concluso!</p>";
     }
+}
+
 
     // Funzione per caricare un evento specifico
     function loadEvent(country) {
         if (events[country]) {
             eventDate = events[country].date; // Imposta la data dell'evento
             document.getElementById("event-name").textContent = "Prossimo Evento: " + events[country].name;
+            updateCountdown();
         } else {
             alert("Nessun evento trovato per questa nazionalità!");
         }
