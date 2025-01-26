@@ -83,10 +83,12 @@
     <section id="community">
         <h2>Community</h2>
         <p>Seguici su Twitch e altri social!</p>
-        <a href="https://www.youtube.com/@speedlegendssportf1" ><img src="https://www.youtube.com/yts/img/favicon_32-vflOogEID.png"alt="icon"></a> |
-        <a href="https://twitch.tv/speed_legends_sport_f1"><img src="https://cdn-icons-png.flaticon.com/128/15047/15047294.png" alt="Twitch icon" style="height: 32px; width: 32px; background-color: #ffffff; margin:0; padding:0; "></a> |
-        <a href="https://www.tiktok.com/@speedlegendssprtf1?_t=ZN-8tMYvJr3UhS&_r=1">TIKTOK</a> |
-        <a href="https://www.instagram.com/scaredgod?igsh=MWQ5Y2VhaHNja2l1MQ==">INSTAGRAM</a>
+        <div class="loghi" style="margin-left: 15px;">
+            <a href="https://www.youtube.com/@speedlegendssportf1" ><img src="https://www.youtube.com/yts/img/favicon_32-vflOogEID.png" alt="icon" style="margin-right:10px;"></a> 
+            <a href="https://twitch.tv/speed_legends_sport_f1"><img src="https://cdn-icons-png.flaticon.com/128/15047/15047294.png" alt="Twitch icon" style="height:32px; width: 32px; margin: 0; padding: 0; display: inline-block; margin-right: 10px;"></a> 
+            <a href="https://www.tiktok.com/@speedlegendssprtf1?_t=ZN-8tMYvJr3UhS&_r=1"><img src="https://1000logos.net/wp-content/uploads/2019/06/TikTok-icon-2.png" alt="icon" style="height:32px; width: 32px; margin: 0; padding: 0; display: inline-block;margin-right: 10px;"></a> 
+            <a href="https://www.instagram.com/scaredgod?igsh=MWQ5Y2VhaHNja2l1MQ=="><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="icon" style="height:32px; width: 32px; margin: 0; padding: 0;background-color: transparent;margin-right: 10px;"></a>
+        </div>
     </section>
 
     <section id="leaderboard">
@@ -195,7 +197,7 @@
     // Funzione per aggiornare il countdown
     let eventDate = null; // Variabile globale per la data dell'evento
     let events = {}; // Variabile globale per memorizzare gli eventi caricati
-
+    
     // Funzione per aggiornare il countdown
     function updateCountdown() {
         if (!eventDate) return; // Se non è stata selezionata una data, non fare nulla
@@ -210,12 +212,15 @@
         const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-        document.getElementById("days").textContent = days;
-        document.getElementById("hours").textContent = hours;
-        document.getElementById("minutes").textContent = minutes;
-        document.getElementById("seconds").textContent = seconds;
+        document.getElementById("countdown").innerHTML = `
+                <p><span id="days">${days}</span> giorni</p>
+                <p><span id="hours">${hours}</span> ore</p>
+                <p><span id="minutes">${minutes}</span> minuti</p>
+                <p><span id="seconds">${seconds}</span> secondi</p>
+            `;
     } else {
         document.getElementById("countdown").innerHTML = "<p>L'evento è in corso o si è già concluso!</p>";
+        
     }
 }
 
@@ -226,6 +231,7 @@
             eventDate = events[country].date; // Imposta la data dell'evento
             document.getElementById("event-name").textContent = "Prossimo Evento: " + events[country].name;
             updateCountdown();
+            
         } else {
             alert("Nessun evento trovato per questa nazionalità!");
         }
