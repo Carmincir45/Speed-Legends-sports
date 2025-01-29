@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPDLEGSPORTF1</title>
     <link rel="icon" href="https://raw.githubusercontent.com/Carmincir45/Speed-Legends-sports/refs/heads/main/speed%20legends%20logo.png" type="image/png">
+    <meta name="description" content="Scopri Speed Legends Sports, un sito dedicato alle formula 1 e tornei tra appasionati di F124.">
     <link rel="stylesheet" href="mariostyle.css">
    
 </head>
@@ -56,7 +57,6 @@
             <li>Lunedì: 21:30 - 23:30</li>
         </ul>
         <p>SCEGLI IL PROSSIMO GRAN PREMIO:</p>
-        
         <div>
             <select id="country-selector" onchange="loadEvent(this.value)">
                 <!--Vengono generate da load event-->
@@ -69,17 +69,19 @@
             <p><span id="minutes">00</span> minuti</p>
             <p><span id="seconds">00</span> secondi</p>
         </div>
-
-        
-    </section>
+</section>
        
-   
+   </section>
 
     <section id="gallery">
         <h2>Galleria</h2>
         <div class="gallery">
-            <img src="https://raw.githubusercontent.com/Carmincir45/Speed-Legends-sports/refs/heads/main/Calendar.jpeg" alt="Momento 1">
-            <img src="https://raw.githubusercontent.com/Carmincir45/Speed-Legends-sports/refs/heads/main/leaderboard.jpg" alt="Momento 2">
+            <a href="https://raw.githubusercontent.com/Carmincir45/Speed-Legends-sports/refs/heads/main/Calendar.jpeg" target="_blank"></a>
+                <img src="https://raw.githubusercontent.com/Carmincir45/Speed-Legends-sports/refs/heads/main/Calendar.jpeg" alt="Momento 1" style="width: 100%; max-width: 500px; height: 90%; margin: 10px; max-height: 300px;">
+            </a>
+            <a href="leaderboard.jpg" target="_blank">
+                <img src="leaderboard.jpg" alt="Momento 2" style="width: 80%; max-width: 500px; height: 100%; margin: 10px; max-height: 300px;">
+            </a>
         </div>
     </section>
 
@@ -110,6 +112,7 @@
             </tbody>
         </table>
     </section>
+
 
     <section id="contact">
         <h2>Contatti</h2>
@@ -292,10 +295,6 @@
     loadEvents();
     console.log(country);
 
-    //MOSTRA RISULTATI
-    function showresult{
-        
-    }
 </script>
 
 </body>
