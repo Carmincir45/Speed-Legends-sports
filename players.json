@@ -1,100 +1,36 @@
-"players": [
-    {   "name": "The legends",
-        "points": 9999999
-    },
-    {
-        "name": "veo",
-        "points": 48912
-    },
-    {
-        "name": "tuala",
-        "points": 29472
-    },
-    {
-        "name": "hgfd",
-        "points": 7678
-    },
-    {
-        "name": "recordd",
-        "points": 7338
-    },
-    {
-        "name": "fino",
-        "points": 5764
-    },
-    {
-        "name": "hgffg",
-        "points": 5346
-    },
-    {
-        "name": "paolo",
-        "points": 4739
-    },
-    {
-        "name": "frat",
-        "points": 4637
-    },
-    {
-        "name": "melo",
-        "points": 4583
-    },
-    {
-        "name": "appa",
-        "points": 3949
-    },
-    {
-        "name": "voce",
-        "points": 3495
-    },
-    {
-        "name": "ceto",
-        "points": 2948
-    },
-    {
-        "name": "mina",
-        "points": 890
-    },
-    {
-        "name": "pio",
-        "points": 876
-    },
-    {
-        "name": "coso367",
-        "points": 367
-    },
-    {
-        "name": "fgdh",
-        "points": 354
-    },
-    {
-        "name": "cooked46",
-        "points": 230
-    },
-    {
-        "name": "cuore",
-        "points": 34
-    },
-    {
-        "name": "fasano",
-        "points": 32
-    },
-    {
-        "name": "mio",
-        "points": 23
-    },
-    {
-        "name": "anto",
-        "points": 23
-    }
-],
-
-"results": {
-    "regno_unito": [
-        { "posizione": 1, "pilota": "Nome Pilota 1", "team": "Team 1", "tempo": "1:30:45", "punti": 25 },
-        { "posizione": 2, "pilota": "Nome Pilota 2", "team": "Team 2", "tempo": "1:31:10", "punti": 18 }
+{
+    "players": [
+        { "name": "The legends", "points": 9999999 },
+        { "name": "veo", "points": 48912 },
+        { "name": "tuala", "points": 29472 },
+        { "name": "hgfd", "points": 7678 },
+        { "name": "recordd", "points": 7338 },
+        { "name": "fino", "points": 5764 },
+        { "name": "hgffg", "points": 5346 },
+        { "name": "paolo", "points": 4739 },
+        { "name": "frat", "points": 4637 },
+        { "name": "melo", "points": 4583 },
+        { "name": "appa", "points": 3949 },
+        { "name": "voce", "points": 3495 },
+        { "name": "ceto", "points": 2948 },
+        { "name": "mina", "points": 890 },
+        { "name": "pio", "points": 876 },
+        { "name": "coso367", "points": 367 },
+        { "name": "fgdh", "points": 354 },
+        { "name": "cooked46", "points": 230 },
+        { "name": "cuore", "points": 34 },
+        { "name": "fasano", "points": 32 },
+        { "name": "mio", "points": 23 },
+        { "name": "anto", "points": 23 }
     ],
-    "italia": [
-        { "posizione": 1, "pilota": "Nome Pilota 3", "team": "Team 3", "tempo": "1:29:30", "punti": 25 },
-        { "posizione": 2, "pilota": "Nome Pilota 4", "team": "Team 4", "tempo": "1:30:00", "punti": 18 }
-    ]
-}
+    "results": {
+        "regno_unito": [
+            { "posizione": 1, "pilota": "Nome Pilota 1", "team": "Team 1", "tempo": "1:30:45", "punti": 25 },
+            { "posizione": 2, "pilota": "Nome Pilota 2", "team": "Team 2", "tempo": "1:31:10", "punti": 18 }
+        ],
+        "italia": [
+            { "posizione": 1, "pilota": "Nome Pilota 3", "team": "Team 3", "tempo": "1:29:30", "punti": 25 },
+            { "posizione": 2, "pilota": "Nome Pilota 4", "team": "Team 4", "tempo": "1:30:00", "punti": 18 }
+        ]
+    }
+}    
