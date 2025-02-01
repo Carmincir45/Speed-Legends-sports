@@ -31,6 +31,7 @@
                 throw new Error('Network response was not ok');
             }
             const players = await response.json(); // Converti i dati in un array
+            const players = data.players
             updateLeaderboard(players); // Aggiorna la classifica
         } catch (error) {
             console.error("Errore nel caricamento della classifica:", error);
