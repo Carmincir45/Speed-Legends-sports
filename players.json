@@ -22,7 +22,7 @@
         { "name": "fasano", "points": 32 },
         { "name": "mio", "points": 23 },
         { "name": "anto", "points": 23 }
-    ]
+    ],
     "results": {
         "regno_unito": [
             { "posizione": 1, "pilota": "Nome Pilota 1", "team": "Team 1", "tempo": "1:30:45", "punti": 25 },
