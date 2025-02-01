@@ -30,7 +30,7 @@
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            const players = await response.json(); // Converti i dati in un array
+            const data = await response.json(); // Converti i dati in un array
             const players = data.players;
             updateLeaderboard(players); // Aggiorna la classifica
         } catch (error) {
