@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risultati Gran Premio</title>
+    <link rel="stylesheet" href="mariostyle.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Risultati Gran Premio</h1>
+    </header>
+    <main>
+        <section id="results">
+            <button onclick="window.location.href='Speed legends.html'" class="cta-button">Torna alla Home</button>
+            <h2 id="gp-title">Classifica Finale</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Posizione</th>
+                        <th>Pilota</th>
+                        <th>Team</th>
+                        <th>Tempo</th>
+                        <th>Punti</th>
+                    </tr>
+                </thead>
+                <tbody id="results-body">
+                    <!-- I risultati verranno aggiunti dinamicamente tramite JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const gp = urlParams.get('gp');
+            const gpTitle = document.getElementById('gp-title');
+            const resultsBody = document.getElementById('results-body');
+
+            fetch('https://raw.githubusercontent.com/Carmincir45/Speed-Legends-sports/main/players.json')
+                .then(response => response.json())
+                .then(data => {
+                    if (gp && data.results[gp]) {
+                        gpTitle.textContent = `Classifica Finale - ${gp.replace('_', ' ')}`;
+                        data.results[gp].forEach(result => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${result.posizione}</td>
+                                <td>${result.pilota}</td>
+                                <td>${result.team}</td>
+                                <td>${result.tempo}</td>
+                                <td>${result.punti}</td>
+                            `;
+                            resultsBody.appendChild(row);
+                        });
+                    } else {
+                        gpTitle.textContent = 'Classifica Finale - Gran Premio non trovato';
+                    }
+                })
+                .catch(error => {
+                    console.error('Errore nel caricamento dei risultati:', error);
+                    gpTitle.textContent = 'Errore nel caricamento dei risultati';
+                });
+        });
+    </script>
+</body>
+</html>
