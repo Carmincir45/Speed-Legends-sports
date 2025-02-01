@@ -1,6 +1,5 @@
-[
-    {
-        "name": "The legends",
+"players": [
+    {   "name": "The legends",
         "points": 9999999
     },
     {
@@ -88,3 +87,14 @@
         "points": 23
     }
 ]
+
+"results": {
+    "regno_unito": [
+        { "posizione": 1, "pilota": "Nome Pilota 1", "team": "Team 1", "tempo": "1:30:45", "punti": 25 },
+        { "posizione": 2, "pilota": "Nome Pilota 2", "team": "Team 2", "tempo": "1:31:10", "punti": 18 }
+    ],
+    "italia": [
+        { "posizione": 1, "pilota": "Nome Pilota 3", "team": "Team 3", "tempo": "1:29:30", "punti": 25 },
+        { "posizione": 2, "pilota": "Nome Pilota 4", "team": "Team 4", "tempo": "1:30:00", "punti": 18 }
+    ]
+}
