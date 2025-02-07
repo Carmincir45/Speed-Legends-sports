@@ -111,6 +111,10 @@ footer {
     margin-top: 10px;
 }
 
+.cta-button:hover {
+    background-color: #0056b3; /* Colore di sfondo al passaggio del mouse */
+}
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
