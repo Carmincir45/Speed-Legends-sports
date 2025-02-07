@@ -110,6 +110,9 @@ footer {
     display: inline-block;
     margin-top: 10px;
 }
+.cta-button:hover {
+    background-color: #0056b3; 
+}
 
 .gallery {
     display: flex;
